@@ -1,0 +1,121 @@
+<!-- Authors: Saurin Patel, Sagar Patel
+Program Name: Utivity Productivity app
+Program Description: Help page to give assistance on how to use the app
+Last Revision Date: 2021 - 1 - 30
+ICS 4U1
+Mr. Moore -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head><!--This header section is basic HTML boilerplate code, it references the viewport, scale, and stylesheet-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS Styling -->
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="static/css/styles.css">
+        <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+        <!--Javascript -->
+        <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> <!--This is the javascript code from an external provder to do the carousel animation-->
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="header__img">
+                <img src="{{ image_file }}" class="usericonpos" alt=""> <!--This renders the profile picture by requesting it from flask-->
+            </div>
+        </header>
+        <div class="l-navbar" id="nav-bar">
+            <nav class="nav">
+                <div>
+                    <a href="dashboard" class="nav__logo"><!--This is the dashboard link-->
+                        <img src="static/img/utivity.png" height="28"><!--This is the utivity icon-->
+                    </a>
+
+                    <div class="nav__list">
+                        <a href="dashboard" class="nav__link"><!--This is the dashboard link-->
+                            <img src="static/img/home.png" width="24" height="24"><!--This is the home icon-->
+                        </a>
+
+                        <a href="timer" class="nav__link"><!--This is the timer link-->
+                            <img src="static/img/clock.png" width="24" height="24"><!--This is the timer icon-->
+                        </a>
+                        
+                        <a href="history" class="nav__link"><!--This is the history link-->
+                            <img src="static/img/database.png" width="24" height="24"><!--This is the history icon-->
+                        </a>
+
+                        <a href="todo" class="nav__link"><!--This is the todo link-->
+                            <img src="static/img/check-square.png" width="24" height="24"><!--This is the todo icon-->
+                        </a>
+
+                        <a href="settings" class="nav__link"><!--This is the settings link-->
+                            <img src="static/img/settings.png" width="24" height="24"><!--This is the settings icon-->
+                        </a>
+
+                        <a href="help" class="nav__link"><!--This is the help link-->
+                            <img src="static/img/help-circle.png" width="24" height="24"><!--This is the help icon-->
+                        </a>
+                    </div>
+                </div>
+                <a href="logout" class="nav__link"><!--This is the logout link-->
+                    <img src="static/img/log-out.png" width="24" height="24"><!--This is the logout icon-->
+                </a>
+            </nav>
+        </div>
+        <!-- The carouself is made using a package called Flickity. Flickity only works with cell elements, meaning every carousel with flickity will look similar -->
+        <!-- Created a div and put a class within it to allow for css editing using .class{} -->
+        <!-- The div contains many paragraphs with their own classes, which are used in the css file to create neumorphic designs -->
+        <div class="carousel"
+            data-flickity='{ "wrapAround": true }'>
+            <div class="helpCarousel-box">
+                <!-- Creeates paragraphs inside a div to contain it inside one Flickity slide, which we can still further edit-->
+                <!-- Each paragraph have been given classes, so we can do css editing for font size, weight, spacing etc -->
+                <p class="help-header">Timer/Dashboard/History Help</p>
+                <p class="subheading-help">How do I use the Timer?</p>
+                <p class="help-page-1">First, you must direct yourself to the tab with the clock-looking icon.
+                    This tab is where your data is collected from. In order to use it, you must press start and the stopwatch will start counting upwards.
+                    Once you finish your productivity session, you must press the submit button, which will complete your timer and store it to be used in the dashboard and historical data page.
+                    IMPORTANT: Once you begin your timer, you cannot go to another tab in the app or else the stopwatch will reset. You can run the timer in the background, but switching through tabs after starting a timer will result in the closing and deletion of the session.
+                </p>
+                <p class="subheading-help">How can I access the Dashboard?</p>
+                <p class="help-page-1">To check the Dashboard, you must click the home icon in the Navigation bar on the left or click the logo in the top left.
+                    This will redirect you to the home page where you can access all the important statistics about your work throughout periods of time and your workflow ever since you started using the app.
+                </p>
+                <p class="subheading-help">How am I supposed to check my historical data?</p>
+                <p class="help-page-1">You can check your historical data by going to the tab with the database icon.
+                    This tab is the history tab and it's where you will be able to access previous data. On this page you cannot make any alterations or make any edits/deletes.
+                </p>
+            </div>
+            <!-- This is another div meant to contain the todo list help, which will act as the second slide in the Flickity carousel -->
+            <!-- All the paragraphs are given their own respective classes, which are used to space the bullet points evenly through the table -->
+            <!-- Using common classes among the paragraphs allows for quick font changes and styling changes to this text in the carousel -->
+            <div class="helpCarousel-box">
+                <p class="help-header">To-Do List Help</p>
+                <p class="subheading-help">How do I use the ToDo List?</p>
+                <p class="help-page-2"> - To start, go to the todo list page by clicking the icon that has a square with a check mark inside it. From there you can add items to your list.
+                </p>
+                <p class="help-page-2"> - When you are on the to-do page and want to add an item, type it into the input box and press the submit button. This will add that item to the bottom of your list.
+                </p>
+                <p class="help-page-2"> - After you have created a list of items but want to edit or remove items, you must simply click on top of the input box with the task, edit the task, and press the edit button to save changes.
+                </p>
+                <p class="help-page-2"> - Once you click off your todo list and go to another tab such as the timer or dashboard, your list will remain the same because it is linked to your account in the database.
+                </p>
+            </div>
+            <!-- In this div, the settings help is contained within, where there are explanations on uses of the help page. -->
+            <!-- The paragraphs in here share the same classes as the previous flickity carousel, which allows for both slides to be quickly manipulated similarly -->
+            <!-- There are subheading and heading classes, which are used to distinguish what each page is dedicated for in the app -->
+            <div class="helpCarousel-box">
+                <p class="help-header">Settings Help</p>
+                <p class="subheading-help">What can I do on the Settings page?</p>
+                <p class="help-page-2"> - The settings page is dedicated to keeping your account up to date and to assist with logging out in special circumstances.
+                </p>
+                <p class="help-page-2"> - The first feature of the settings page is the ability to change your account's profile picture. To change your profile picture, you must upload an image file (PNG/JPG)
+                    by clicking on the "choose file" button. Once you have your file uploaded, you can click the 'Update profile picture' button which will allow your profile picture to be updated.
+                </p>
+                <p class="help-page-2"> - The second feature on the settings page is the addition of another logout button. This is an alternate button from the one in the bottom left corner in case users don't know what the button means.
+                    This button is useful because it allows for the user to visually see how they can logout without needing to interpret the icons.
+                </p>
+            </div>
+        </div>
+        <h1 class="pagetitle">Help</h1><!--This is the title for the page-->
+    </body>
+</html>

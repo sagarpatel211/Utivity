@@ -1,0 +1,95 @@
+<!-- Authors: Saurin Patel, Sagar Patel
+Program Name: Utivity Productivity app
+Program Description: Register page for creating a new account
+Last Revision Date: 2021 - 1 - 30
+ICS 4U1
+Mr. Moore -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head> <!--This header section is basic HTML boilerplate code, it references the viewport, scale, and stylesheet-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS Styling -->
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="static/css/styles.css" type="text/css">
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header"> <!--This is the header bar which includes the links to home and login -->
+            <div class="topnav">
+                <a href="/home">Home</a><!--Home link-->
+                <a class="active" href="/register">Register</a> <!--Register is currently the active link-->
+                <a href="/login">Log In</a><!--Login link-->
+            </div>
+        </header>
+        <h1 class='register-title'>REGISTER</h1> <!--This is the title for the screen -->
+        <img src="static/img/sign_up.png" class="signupicon"> <!--This is the simple image on the right side of the screen -->
+        <div>
+            <form method="POST" action=""><!--This is the form for registering an account-->
+                {{ form.hidden_tag() }}
+                <fieldset style = 'border: none'>
+                    <div>
+                        {{ form.username.label(class='username-label') }}<!--This is the field to input your username-->
+                        {% if form.username.errors %}<!--This is to check for any errors in the inputs-->
+                            <div>
+                                {{ form.username(class='username-box') }}
+                                {% for error in form.username.errors %}
+                                    <span class="username-error">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.username(class='username-box') }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.email.label(class='email-label') }}<!--This is the field to input your email-->
+                        {% if form.email.errors %}<!--This is to check for any errors in the inputs-->
+                            <div>
+                                {{ form.email(class='email-box') }}
+                                {% for error in form.email.errors %}
+                                    <span class="email-error">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class='email-box') }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.password.label(class='password-label') }}<!--This is the field to input your password-->
+                        {% if form.password.errors %}<!--This is to check for any errors in the inputs-->
+                            <div>
+                                {% for error in form.password.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(class='password-box') }}
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.confirm_password.label(class='confirmpassword-label') }}<!--This is the field to input your password again-->
+                        {% if form.confirm_password.errors %}<!--This is to check for any errors in the inputs-->
+                            <div>
+                                {{ form.confirm_password(class='confirmpassword-box') }}
+                                {% for error in form.confirm_password.errors %}
+                                    <span class="password-confirm-error">{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.confirm_password(class='confirmpassword-box') }}<!--Confirm password box if there are no errors-->
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.submit(class='submit-form') }} <!--This is the submit button to send the info to the db-->
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div>
+            <small style="position: absolute; top: 550px; left: 325px; font-size: 15px; font-weight: 400;">
+                <!--Allows user to choose to login if they already have an account-->
+                 Already Have An Account?<a href="{{ url_for('login') }}" style="color: rgb(82, 122, 207);"> Sign In</a>
+            </small>
+        </div>
+    </body>
+</html>

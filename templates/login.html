@@ -1,0 +1,76 @@
+<!-- Authors: Saurin Patel, Sagar Patel
+Program Name: Utivity Productivity app
+Program Description: Login page for logging into the app and gaining access to usage and personal stats.
+Last Revision Date: 2021 - 1 - 30
+ICS 4U1
+Mr. Moore -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head> <!--This header section is basic HTML boilerplate code, it references the viewport, scale, and stylesheet-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS Styling -->
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="static/css/styles.css" type="text/css">
+    </head>
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="topnav">
+                <a href="/home">Home</a><!--Home link-->
+                <a href="/register">Register</a><!--Register link-->
+                <a class="active" href="/login">Log In</a><!--Login is currently the active link-->
+            </div>
+        </header>
+        <h1 class="login-title">LOG IN</h1><!--This is the title for the screen -->
+        <div>
+            <img src="static/img/sign_in.png" class="loginicon"><!--This is the simple image on the right side of the screen -->
+            <form method="POST" action=""><!--This is the form for logging into an account-->
+                {{ form.hidden_tag() }}
+                <fieldset style = 'border: none'><!--This is the fieldset to input your credentials-->
+                    <div>
+                        {{ form.email.label(class='email-label-login') }}<!--This is the field to input your email-->
+                        {% if form.email.errors %}<!--This checks if there are any errors in your email input-->
+                            <div>
+                                {{ form.email(class='email-box-login') }}
+                                {% for error in form.email.errors %}
+                                    <span class="login-email-error">{{ error }}</span><!--It displays an error if there are-->
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email(class='email-box-login') }} <!--It submits the value if there aren't-->
+                        {% endif %}
+                    </div>
+                    <div>
+                        {{ form.password.label(class='password-label-login') }} <!--This is the field to input your password-->
+                        {% if form.password.errors %} <!--If there are any errors in your password field-->
+                            <div>
+                                {{ form.password(class='password-box-login') }}<!--Check for the value in the password form-->
+                                {% for error in form.password.errors %}<!--for loop through all the issues in the pasword-->
+                                    <span class="login-password-error">{{ error }}</span><!--List off the issues with the password-->
+                                {% endfor %}<!--End for -->
+                            </div>
+                        {% else %} <!--If there are no errors-->
+                            {{ form.password(class='password-box-login') }} <!--Then submit the value into flask when submit is pressed-->
+                        {% endif %}<!--End if-->
+                    </div>
+                    <div>
+                        {{ form.submit(class='submit-form2') }} <!--This is the submit button to send the email and password to flask to log in-->
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <small style="position: absolute; top: 360px; left: 325px; font-size: 15px; font-weight: 400;">
+            <!--Allows user to be redirected to login if they don't actually have an account yet-->
+            Need An Account?<a href="{{ url_for('register') }}" style="color: rgb(82, 122, 207);"> Register!</a>
+        </small>
+        <!--This is the build in flash to allow the users to see if there input was a success or fail-->
+        {% with messages = get_flashed_messages(with_categories=true) %} <!--If any flashes need to be shown, assign it to messages-->
+            {% if messages %} <!--If there are any errors-->
+                {% for category, message in messages %} <!--For all flashes-->
+                    <div class="{{ category }}">{{ message }}</div> <!--Display each one with their own class/category-->
+                {% endfor %} <!--End for-->
+            {% endif %} <!--End if-->
+        {% endwith %} <!--End with-->
+    </body>
+</html>

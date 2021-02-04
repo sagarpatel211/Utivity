@@ -1,0 +1,44 @@
+<!-- Authors: Saurin Patel, Sagar Patel
+Program Name: Utivity Productivity app
+Program Description: The main home page of the app
+Last Revision Date: 2021 - 1 - 30
+ICS 4U1
+Mr. Moore -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS Styling -->
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="static/css/styles.css" type="text/css">
+    </head>
+    <!-- First there is the creation of a header, in which inside there is a series of elements that make up the top navigation -->
+    <!-- The top navigation contains the Home, Register, and Login menus which is what is represented in the header content -->
+    <body id="body-pd">
+        <header class="header" id="header">
+            <div class="topnav">
+                <a class="active" href="/home">Home</a><!--This is the home page which is active-->
+                <a href="/register">Register</a><!--This is the register link page-->
+                <a href="/login">Log In</a><!--This is the login link page-->
+            </div>
+        </header>
+        <!-- From here an image of the full banner is shown 75 pixels down and 150 pixels to the right with a widht of 900 pixels -->
+        <img src="static/img/fullbanner.png" alt="Utivity Banner" width="900" style="position: absolute; top:75px ;right:150px;">
+        <!-- Then a div is made where a neumorphic box is made using the exact same class in css -->
+        <div class="home-border-box"></div>
+        <!-- Inside this box there are 3 messages that are presented, which relate to welcoming the user, the description of the app and the purpose of the app -->
+        <p class='welcome-msg'> Welcome to UTIVITY!</p>
+        <p class='home-description'> Our app is a productivity app dedicated to time tracking user productivity!</p>
+        <p class='app-purpose'> This project was completed for the ICS4U1 course offered at Sir Winston Churchill Secondary School</p>
+        <!-- When the information is flashed here from signup, then it prints all the messages and flashes them using a built in flash feature in flask -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %} <!--For all the flashes that need to be flashed-->
+                    <div class="{{ category }}">{{ message }}</div><!--display the flash with their category/class-->
+                {% endfor %} <!--End for-->
+            {% endif %}<!--End if-->
+        {% endwith %}<!--End with-->
+    </body>
+</html>

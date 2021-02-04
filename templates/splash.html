@@ -1,0 +1,27 @@
+<!-- Authors: Saurin Patel, Sagar Patel
+Program Name: Utivity Productivity app
+Program Description: Page dedicated for the splash screen of our app.
+Last Revision Date: 2021 - 1 - 30
+ICS 4U1
+Mr. Moore -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head><!--This header section is basic HTML boilerplate code, it references the viewport, scale, and stylesheet-->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--CSS Styling -->
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="static/css/styles.css" type="text/css">
+    </head>
+    <!-- This is where the splashscreen.gif is played once through in 3.5 seconds before redirecting to the home page -->
+    <body>
+        <!--This is the javascript which allows the gif to run for 3.5 seconds and then lead to the home window -->
+        <script>
+            var timer = setTimeout(function() {
+                window.location='home'
+            }, 3500);
+        </script>
+        <img src="/static/img/splashscreen.gif" type="video/gif" width="1180" height="655"><!--This is the gif of the logo-->    
+    </body>
+</html>

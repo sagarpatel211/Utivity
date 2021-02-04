@@ -1,0 +1,1352 @@
+/* Authors: Saurin Patel, Sagar Patel
+Program Name: Utivity Productivity app
+Program Description: CSS file for styling of the app
+Last Revision Date: 2021 - 1 - 29
+ICS 4U1
+Mr. Moore */
+
+  /* This is how and where we get our font for the buttons and text all throughout the program. We use the google font APIs */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+  /* These are variables for the nav bar so all the components that needed a lot of testinf and trial and error where placed near the top for easier tweaking */
+:root{
+  --header-height: 3rem;
+  --nav-width: 68px;
+
+    /* These are the variables for the colour for the background, navigation bar, and the header bar */
+  --first-color: #3F3F3F; /*3F3F3F*/
+  --first-color-light: #AFA5D9; /*AFA5D9 (this colour is useless)*/
+  --white-color: #F7F6FB; /*F7F6FB*/
+  
+  /* This is where we take the font from the google api and create a variable for the body font and the size (1rem = default) */
+  --body-font: 'Montserrat', Montserrat;
+  --normal-font-size: 1rem;
+  
+  /* This is our index where we are able to position some elements in front of other elements dpeending on their z-fized position */
+  --z-fixed: 100;
+}
+
+  /* this keeps the padding and margin of the nav bar to be 0 when the user resizes the window. We disabled resizing so this code isn't that useful */
+*,::before,::after{
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+}
+
+
+  /* This is the body of our code, which default disables scroll bars, and uses the variables declared near the top of the .css file to create the defaul values (eg. header size) */
+body{
+  overflow: hidden;
+  position: relative;
+  margin: var(--header-height) 0 0 0;
+  padding: 0 1rem;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+}
+
+  /* This is the body of our code, which default disables scroll bars, and uses the variables declared near the top of the .css file to create the defaul values (eg. header size) */
+.header{
+  width: 100%;
+  height: var(--header-height);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  background-color: var(--white-color);
+  z-index: var(--z-fixed);
+}
+
+  /* This controls the size of the image in the header bar. It is a 35x35 icon and has a border radius of 50% meaning it is a circle */
+.header__img{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+  /* This controls the parameters of the nav bar, like the background colour, its transition to move into the screen, it's z position, etc. */
+  .l-navbar{
+  position: fixed;
+  top: 0;
+  left: -30%;
+  width: var(--nav-width);
+  height: 100vh;
+  background-color: var(--first-color);
+  padding: .5rem 1rem 0 0;
+  transition: .5s;
+  z-index: var(--z-fixed);
+}
+
+  /* This controls the parameters of the nav bar as well but is more specific so it can be used in different places */
+.nav{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+  /* This controls the parameters of the nav bar's logo and link by deciding the padding, and it's a grid which is why they all have equal spacing and are centered */
+.nav__logo, .nav__link{
+  display: grid;
+  grid-template-columns: max-content max-content;
+  align-items: center;
+  column-gap: 1rem;
+  padding: .5rem 0 .5rem 1.5rem;
+}
+
+  /* This gives the all the logos to have a margin on the bottom side of double the default, which allows them to space out nicely */
+.nav__logo{
+  margin-bottom: 2rem;
+}
+
+  /* This gives the buttons in the navigation link to have a colour and a consistent margin so the spacing is consistent/reused */
+.nav__link{
+  position: relative;
+  color: var(--first-color-light);
+  margin-bottom: 1.5rem;
+}
+
+  /* This calculates the body padding and width of the nav bar, which are both defaulted at 1rem */
+.body-pd{
+  padding-left: calc(var(--nav-width) + 1rem);
+}
+
+  /* This calculates how tall and how much padding our header has. We calculated this by using the math another boilerplate template used to calculate their header*/
+@media screen and (min-width: 768px){
+  body{
+    margin: calc(var(--header-height) + 1rem) 0 0 0;
+    padding-left: calc(var(--nav-width) + 2rem);
+  }
+
+  /* This calculates how tall and how much padding our header has. We calculated this by using the math another boilerplate template used to calculate their header*/
+  .header{
+    height: calc(var(--header-height) + 1rem);
+    padding: 0 2rem 0 calc(var(--nav-width) + 2rem);
+  }
+
+  /* This decides the header image icon size so we can reuse the class for every url that has a header icon */
+  .header__img{
+    width: 40px;
+    height: 40px;
+  }
+
+  /* This is our default navbar class which has the default padding and no left displacement from the left edge of the screen */
+  .l-navbar{
+    left: 0;
+    padding: 1rem 1rem 0 0;
+  }
+  
+  /* This adds the padding for the nav bar and the body of the desktop */
+  .body-pd{
+    padding-left: calc(var(--nav-width) + 188px);
+  }
+}
+
+/* This decides the position of the user icon in the top right corner (header bar) */
+.usericonpos{
+  position: absolute;
+  left: 1120px;
+  top: 10px;
+  height: 35px;
+  width: 35px;
+}
+
+/* This is the CSS for the generic help page carousel that can be accessed after login */
+.helpCarousel-box{
+  width: 850px;
+  height: 400px;
+  margin-top: 75px;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-bottom: 50px;
+  border-radius: 30px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+}
+
+/* This is the font formatting for the first slide of the CSS */
+.help-page-1{
+  padding-left: 20px;
+  padding-top: 2px;
+  padding-bottom: 8pxx;
+  padding-right: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
+
+/* This chunk deals with the formatting for the text for the seond and third carousel slids on the help page */
+.help-page-2{
+  padding-left: 20px;
+  padding-top: 25px;
+  padding-bottom: 8pxx;
+  padding-right: 10px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  font-size: 13px;
+}
+
+/* This chuck is dedicated to the main headers on each of the slides of the help carousel */
+/* padding is spacing on the inside of the element, whereas margin is on the outside, padding was necessary in this case */
+.help-header{
+  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  font-size: 24px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+/* This is a smaller subheading format used for the first slide of the help page. */
+/* The font weight/thickness is smaller to allow for there to be formatting in the entirety of the slide */
+.subheading-help{
+  padding-left: 20px;
+  padding-top: 12px;
+  padding-bottom: 5px;
+  padding-right: 10px;
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 500;
+}
+
+/* The page title class in the css is meant for all the titles, such as todo, dashboard, stopwatch, settings etc. */
+.pagetitle {
+  position:absolute;
+  left:100px;
+  top:15px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  }
+
+  /* The flash is dedicated for the resposinve feedback for the registering and signup */
+  /* With successful account creations, a green and positive message pop up */
+.flash {
+  padding: 10px;
+  color: white;
+  border-radius: 3px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  position:absolute;
+  top:575px;
+  left:1px;
+}
+
+/* For the flash, when there is a successful creation of an account or signup, a green message will appear in the bottom left because of this line */
+.success {
+  background-color: #169B1E;
+}
+
+/* For the flash, when there is an unsuccessful creation of an account or signup, a red warning/error message will appear in the bottom left because of this line */
+.fail {
+  background-color: #fc3223;
+}
+
+/* On the opening home page, there is a navbar at the top with 3 pages (home, register, and login) */
+/* This line is used to alter the navbar to fit a more neumorphic styling design */
+.topnav {
+  overflow: hidden;
+  width: 100%;
+  background-color: #F7F6FB;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* This line is used to alter the text in the navbar to fit a more neumorphic styling design */
+.topnav a {
+  float: left;
+  color: #000000;
+  text-align: center;
+  padding: 24px 26px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* This chunk of code is used to change the color of the navigation bar when an item is hovered */
+.topnav a:hover {
+  background-color: #a7a7a7;
+  color: #fcfcfc;
+}
+
+/* This chunk of code is used to alter the colors of the active tab */
+.topnav a.active {
+  background-color: #e4e4e4;
+  color: #5f5f5f;
+}
+
+/* This is the generic styling for the buttons on the settings page */
+.settingbutton {
+  width: 400px;
+  height: 100px;
+  background: #f3f0f1;
+  background: #f3f0f1;
+  border-radius: 32px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+/* This is the original CSS of the update profile picture button */
+.setting-button{
+  position: absolute;
+  top: 180px;
+  left: 100px;
+  width: 500px;
+  height: 100px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: semibold;
+  font-size: 32px;
+  border-radius: 100pc;
+  text-align: center;
+  vertical-align: middle;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #a7a7a7;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This chunks deals with the appearance of the update profile picture button when hovering the mouse over the button */
+.setting-button:hover {
+  position: absolute;
+  top: 180px;
+  left: 100px;
+  width: 500px;
+  height: 100px;
+  font-weight: 100;
+  font-size: 27px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #f7f7f7;
+  background-color: #7a7a7a;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This part of the CSS deals with the appearance of the change profile button when it is clicked */
+.setting-button:active {
+  position: absolute;
+  top: 180px;
+  left: 100px;
+  width: 500px;
+  height: 100px;
+  font-weight: 100;
+  font-size: 27px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #f7f7f7;
+  background-color: #386dfd;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This settings button 2 deals with the design of the log out button below the change profile picture button */
+/* This is exactly the same styling as the update profile picture button, but the absolute positioning is different */
+.settingbutton2 {
+  position: absolute;
+  top: 350px;
+  left: 100px;
+  width: 500px;
+  height: 100px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 32px;
+  font-weight: semibold;
+  border-radius: 100pc;
+  text-align: center;
+  vertical-align: middle;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #a7a7a7;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+  padding-top:27px;
+}
+
+/* This is identical to the CSS of the hovered update profile picture button, except in a different position as it is a logout button */
+.settingbutton2:hover {
+  position: absolute;
+  top: 350px;
+  left: 100px;
+  width: 500px;
+  height: 100px;
+  font-weight: 100;
+  font-size: 27px;
+  border-radius: 100pc;
+  border-style: solid;
+  vertical-align: middle;
+  color: #f7f7f7;
+  background-color: #7a7a7a;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+  padding-top:31px;
+}
+
+/* This is identical to the CSS of the active update profile picture button, except in a different position as it is a logout button */
+/* In all similar types of CSS, the color represents the tet color and the other colors are fairly self explanatory. */
+.settingbutton2:active {
+  position: absolute;
+  top: 350px;
+  left: 100px;
+  width: 500px;
+  height: 100px;
+  font-weight: 100;
+  font-size: 27px;
+  border-radius: 100pc;
+  vertical-align: middle;
+  border-style: solid;
+  color: #f7f7f7;
+  background-color: #386dfd;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+  padding-top:31px;
+}
+
+/* On the home page after opening the application, there is a message to welcome the user, which is what this CSS is dedicated for. */
+.welcome-msg{
+  position: absolute; 
+  top:395px;
+  left: 378px;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-weight: 300;
+  font-size: 24px;
+}
+
+/* This is the same as the CSS for the welcome mesasge except it is in a different position farther below the welcome message */
+.home-description{
+  position: absolute; 
+  top:450px;
+  left: 170px;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-weight: 300;
+}
+
+/* This part of the CSS helps set up the text for describing the purpose of the app */
+/* This is also exactly the same as the previous 2 css elements, but this one is positioned lower than the other two. */
+.app-purpose{
+  position: absolute; 
+  top:500px;
+  left: 130px;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-weight: 300;
+}
+
+/* When opening the home page, there are 3 lines of text that are presented to the user. In order to make the UI less dull, a rounded neumorphic box was added */
+/* This box allows for the user to acknowledge the neumorphic and soft UI right from the home page */
+.home-border-box{
+  position: absolute;
+  top: 360px;
+  left: 150px;
+  width: 900px;
+  height: 200px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  border-radius: 45px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+}
+
+/* This css is used to alter the title of the register page */
+.register-title{
+  position: absolute;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  top: 15px;
+  left: 100px;
+  font-size: 50px;
+  font-weight: 500;
+  color: #3F3F3F;
+}
+
+/* To alter the input boxes, this code positions and allows for inputted text to still be inputted like a normal forms submission. */
+/* All boxes similar to this one use neumorphic shadowing to allow for the UI design trend to be fulfilled */
+.username-box{
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  width: 300px;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-width: 1px;
+  color: #000000;
+}
+
+/* This CSS is here to allow for the indicator text to follow the pages theme more.  */
+.username-label{
+  position: absolute;
+  top: 115px;
+  left: 180px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* This is another input box, just like the username input but this is shifted down 90 pixels to give the elements more spacing */
+.email-box{
+  position: absolute;
+  top: 190px;
+  left: 300px;
+  width: 300px;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-width: 1p;
+  color: #000000;
+}
+
+/* This CSS is here to allow for the indicator text to follow the pages theme more.  */
+.email-label{
+  position: absolute;
+  top: 205px;
+  left: 225px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* This CSS is identical to the other ones except for in termts of positioning  */
+.password-box{
+  position: absolute;
+  top: 280px;
+  left: 300px;
+  width: 300px;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-width: 1px;
+  color: #000000;
+}
+
+/* This id very similar to the previous CSS elements, from which this one is just positioned differently */
+.password-label{
+  position: absolute;
+  top: 295px;
+  left: 185px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* This CSS is exaclty the same as the othe rinput boxes except this is 90 pixels below the password input box */
+.confirmpassword-box{
+  position: absolute;
+  top: 370px;
+  left: 300px;
+  width: 300px;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-width: 1px;
+  color: #000000;
+}
+
+/* This label is here just to be able to help the user identiy what the input box is meant for. These labels help distinguish between numerous different inputs */
+.confirmpassword-label{
+  position: absolute;
+  top: 395px;
+  left: 100px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* This is the submit button, which allows for the user to submit their information in the register tab to create an account */
+.submit-form{
+  position: absolute;
+  top: 470px;
+  left: 350px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #a7a7a7;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This button is the same as the first one except when it is hovered over by the mouse, there is a change in color. This was done to make the UI more interactive and responsive. */
+.submit-form:hover{
+  position: absolute;
+  top: 470px;
+  left: 350px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #7a7a7a;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* Additionally, this is the submit register button, but in the scenario where the button is pressed. This will cause the button to become different colors from the orignaly chosen colors. */
+.submit-form:active{
+  position: absolute;
+  top: 470px;
+  left: 350px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #4375ff;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This CSS just positions the username error underneath the username inupt box so imply that there was a mistake when registering an account */
+.username-error{
+  position: absolute;
+  top: 155px;
+  left: 260px;
+}
+
+/* This is another error that can show up, so we created a css to put it in the correct positon when the error shows up */
+.email-error{
+  position: absolute;
+  top: 245px;
+  left: 365px;
+}
+
+/* the final error that can show up on the register an account page is the confirm password error. 
+For this we created a CSS to output the error under the input box to inform the user something has gone wrong during account creation. */
+.password-confirm-error{
+  position: absolute;
+  top: 430px;
+  left: 318px;
+}
+
+/* This is where the css for the Login page begins */
+/* This is the title of the login page, which is modified to follow the very simplistic and minimal theme of the app. */
+.login-title{
+  position: absolute;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  top: 15px;
+  left: 100px;
+  font-size: 50px;
+  font-weight: 500;
+  color: #3F3F3F;
+}
+
+/* For the login an email box is required, so this CSS alters the bootsrap input box into something more neumorphic and aesthetically pleasing. */
+.email-box-login{
+  position: absolute;
+  top: 100px;
+  left: 300px;
+  width: 300px;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-width: 1px;
+  color: #000000;
+}
+
+/* This is the CSS for a simple label of the email input box so users know what the box is dedicated for. */
+.email-label-login{
+  position: absolute;
+  top: 115px;
+  left: 225px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* Instead of using the bootstrap UI elements, this css chunk modifies the input box to follow our soft UI/neuomorphic UI design trend. */
+.password-box-login{
+  position: absolute;
+  top: 190px;
+  left: 300px;
+  width: 300px;
+  height: 50px;
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-width: 1px;
+  color: #000000;
+}
+
+/* This is the label for the login password, which allows for users of the app to acknowledge that the input box is meant for a password input */
+.password-label-login{
+  position: absolute;
+  top: 205px;
+  left: 185px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* This css is dedicated for the button on the login page */
+.submit-form2{
+  position: absolute;
+  top: 280px;
+  left: 350px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #a7a7a7;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* When the log in button is hovered over by the mouse, the colors will change to allow for more interactivity with the user. */
+.submit-form2:hover{
+  position: absolute;
+  top: 280px;
+  left: 350px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #7a7a7a;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* The final css for the button is meant for when the button is pressed. When it is pressed, the color changes to indicate to the user that they have pressed something */
+.submit-form2:active{
+  position: absolute;
+  top: 280px;
+  left: 350px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #4375ff;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* If there is an email error during login, it needs to be printed under the email input box, which is what this css does. It puts the error underneath the unput box. */
+.login-email-error{
+  position: absolute;
+  top: 155px;
+  left: 365px;
+}
+
+/* When a password error occurs, the error needs to be shown to the user near the input box, which is what this CSS does in this situation. */
+.login-password-error{
+  position: absolute;
+  top: 245px;
+  left: 365px;
+}
+
+/* This is an element of the todo list where the user inputs their tasks and can add it to their list of total todo list. This CSS makes the bootstrap inputs into something more elegant and fitting for the design trend. */
+.task-input-box{
+  position: absolute;
+  top: 75px;
+  left: 100px;
+  width: 450px;
+  height: 50px;
+  padding-left: 25px;
+  font-size: 15px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-width: 1px;
+  color: #000000;
+}
+
+/* This is a submit button which can be used to submit the tasks and add them to their personal list. This button allows for users to have more control over everything in the UI as well. */
+.task-submit-box{
+  position: absolute;
+  top: 75px;
+  left: 600px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #a7a7a7;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* When the button is hovered over by the mouse, there needs to be some form of interactivity and responsiveness, so this chunk of css is used to change the color of the button when hovered over, thus creating more user interation. */
+.task-submit-box:hover{
+  position: absolute;
+  top: 75px;
+  left: 600px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #7a7a7a;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* The final case of interactivity is when the button is pressed. This chunk of css allows for the button to change color when pressed onto, essentially allowing for the user to notice that they pushed the button and interacted with the app. */
+/* This also helps with UI design because it allows for the neumorphic trend to be followed, while creating interations with users. */
+.task-submit-box:active{
+  position: absolute;
+  top: 75px;
+  left: 600px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #7cb7ff;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* When there are no tasks in a person's todo list, there is a message that comes on the screen. This css is used to make sure that message is in the main view of a person's eyes and is easily readable. */
+/* The increased readability from the css will allow for people to create tasks more often when they run out, thus keeping them more productive in the long run. */
+.no-tasks{
+  position: absolute;
+  top: 150px;
+  left: 125px;
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 3px;
+}
+
+/* When users input tasks into the app, it will form a table in the absolute positioning system (x,y) coordinates that are stated using the top and left properties */
+/* There is a margin at the bottom so if the table decides to overextend past the end of the page, there is some room for the user to be able to see their tasks without it having to touch the bottom of the display. */
+/* There is also some border spacing, which is used instead of margins because with the use of margins you are pushing some edges of the table, whereas others aren't affected. With the creation of a border spacing, all surrounding edges are affected creating a margin on all sides of the table. */
+.task-table{
+  position: absolute;
+  top: 155px;
+  left: 75px;
+  border-spacing: 35px;
+  margin-bottom: 50px;
+}
+
+/* To update the task, the user must retype in their edited task so all of the tasks are input boxes that can be altered. After alteration, they must be saved, but this css allows for the user to edit the tasks before they save. */
+.update-task-input{
+  height: 50px;
+  width: 350px;
+  padding-left: 25px;
+  padding-right: 25px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+  border-radius: 20px;
+  border-style: solid;
+  border-color: rgb(206, 206, 206);
+  border-width: 1px;
+  color: #000000;
+  letter-spacing: 3px;
+}
+
+/* This is the button dedicated to saving your changes when you make edits to your tasks. When you use one of the input boxes to change an item on the todo list, you need to be able to save, which is where this button is used. */
+.edit-button-todo{
+  margin-left: 40px;
+  width: 150px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #ad9fce;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This is another variation of the edit button which will change color when hovered over by the mouse. Thus another element showing user interactivity. There is no active version for todo list buttons where the color changes when clicked because of the extremely small window of time to even notice that miniscule change in color. */
+/* The css here is used to alter the bootstrap original button into something neumorphic and interactive */
+.edit-button-todo:hover{
+  margin-left: 40px;
+  width: 150px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 24px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #9d83da;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* When a user wants to remove items from their todo list after completing them, they need a delete button which is what this button is styled for. When pressed it will simply delete that specific item from the todo list. */
+/* This css chunk is done to alter the bootstrap buttons that were previously present. Once the buttons are altered, they appear to follow a more soft UI theme and neumorphic style. */
+.delete-button-todo{
+  margin-left: 30px;
+  width: 150px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #bb7070;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This is exactly the same as the delete buttom in the previous css element, but when the button is hovered over the color changes for interactivity and to create less of dull looking and feeling app. */
+.delete-button-todo:hover{
+  margin-left: 30px;
+  width: 150px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #c65d5d;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This is simply a neumophic box that is presented onto the dashboard page, in which other propterties such as text and images can be placed inside. */
+.dashboard-box-1{
+  position: absolute;
+  top: 70px;
+  left: 110px;
+  width: 475px;
+  height: 225px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  border-radius: 45px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+}
+
+/* This is simply a neumophic box that is presented onto the dashboard page, in which other propterties such as text and images can be placed inside. */
+/* This box is different than the one above because the absolute coordinates are different thus allowing for mutlipel boxes to be present on the dashboard. */
+.dashboard-box-2{
+  position: absolute;
+  top: 335px;
+  left: 110px;
+  width: 475px;
+  height: 225px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  border-radius: 45px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+}
+
+/* This is simply a neumophic box that is presented onto the dashboard page, in which other propterties such as text and images can be placed inside. */
+/* This box is different than the one above because the absolute coordinates are different thus allowing for mutlipel boxes to be present on the dashboard. */
+.dashboard-box-3{
+  position: absolute;
+  top: 70px;
+  left: 660px;
+  width: 475px;
+  height: 225px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  border-radius: 45px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+}
+
+/* This is simply a neumophic box that is presented onto the dashboard page, in which other propterties such as text and images can be placed inside. */
+/* This box is different than the one above because the absolute coordinates are different thus allowing for mutlipel boxes to be present on the dashboard. */
+.dashboard-box-4{
+  position: absolute;
+  top: 335px;
+  left: 660px;
+  width: 475px;
+  height: 225px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+  border-radius: 45px;
+  background: #F2F3F6;
+  box-shadow:  15px 15px 20px #acadb1,
+             -15px -15px 20px #ffffff;
+}
+
+/* This is similar to the tables in the todo list, but meant for the history page. Since all the data is presented in a table, this css is meant to make it looks more appealing to read and analyze. */
+/* This time margins were used alognside border spacing which allows for larger spaces after the first element in the table */
+.history-table {
+  position:absolute;
+  top: 45px;
+  left: 75px;
+  border-spacing: 35px;
+  margin-bottom: 50px;
+  letter-spacing: 3px;
+}
+
+/* Even though the previous chunk of css alterest the table for the history, there was missing features of the id-column that needed to be fixed. */
+/* That is what the purpose of this chunk of css is. To change other properties of this column in the table. */
+.id-column-history{
+  font-weight: 400;
+  font-size: 24px;
+  color: #3a3a3a;
+  letter-spacing: 3px;
+}
+
+/* Similar alterations need to be made in the start time column of the history table, which is what this css is meant for. */
+.start-time-history{
+  font-weight: 400;
+  font-size: 24px;
+  color: #3a3a3a;
+  letter-spacing: 3px;
+}
+
+/* In the history tab, the elapsed time column data needs to be altered for other features. That is what this css chunk is meant to do  */
+.elapsed-time-history{
+  font-weight: 400;
+  font-size: 24px;
+  color: #3a3a3a;
+  letter-spacing: 3px;
+}
+
+/* This css is just used to alter the font and other features of the table in order to have a neumorphic looking app */
+.history-data-table{
+  font-weight: 300;
+  font-size: 15px;
+  color: #3a3a3a;
+  letter-spacing: 3px;
+}
+
+/* Now that all the font styling has been completed, we need to align the elements in the table which is what this padding is done for. */
+.start-time-column{
+  padding-left: 25px;
+}
+
+/* Now that all the font styling has been completed, we need to align the elements in the table which is what this padding is done for. */
+.elapsed-time-column{
+  padding-left: 50px;
+}
+
+.loginicon {
+  position:absolute;
+  top:100px;
+  left:700px;
+  width:500px;
+}
+
+.signupicon {
+  position:absolute;
+  top:100px;
+  left:670px;
+  width:500px;
+}
+
+/* On the timer/stopwatch page, the analog clock does not look very minimal or follow a theme similar to a neumorphic style, so this css is done to make it very sleek and discrete. */
+.analog-clock-timer{
+  position: absolute;
+  top: 75px;
+  left: 150px;
+  letter-spacing: 15px;
+  font-weight: 200;
+  font-size: 150px;
+}
+
+/* This is a button to state the time, which was altered from a bootstrap button. If this css wasn't done, the buttons would be present, but they would look super dull and wouldn't allow for interactivity. */
+.start-time-button{
+  position: absolute;
+  top: 275px;
+  left: 385px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #d39292;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This is the same as the start button from the previous chunk of css, but this one has a color alteration, when the mouse hovers over the button. Once again allowing for interactivity. */
+.start-time-button:hover{
+  position: absolute;
+  top: 275px;
+  left: 385px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #3a3a3a;
+  background-color: #df4747;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This is also the same button as aove, but this css will change the color right when the button is pressed. */
+.start-time-button:active{
+  position: absolute;
+  top: 275px;
+  left: 385px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #F2F3F6;
+  background-color: #363636;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* When the start button has been pressed, the submit button will pop up. This button was changed from a bootstrap button, into something more modern with css. */
+.submit-time-button{
+  position: absolute;
+  top: 275px;
+  left: 385px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #aeaeae;
+  background-color: #5865ba;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This is the same button as the submit one above, but when the mouse hovers over the button, there is a change in color to allow to user connectivity with the app and interactivity. */
+.submit-time-button:hover{
+  position: absolute;
+  top: 275px;
+  left: 385px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #aeaeae;
+  background-color: #514bf3;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* Additonally, this is the same button as above, but the css makes it so that the color will change when the button has been pressed. */
+.submit-time-button:active{
+  position: absolute;
+  top: 275px;
+  left: 385px;
+  width: 200px;
+  height: 50px;
+  font-weight: 400;
+  font-size: 20px;
+  border-radius: 100pc;
+  border-style: solid;
+  color: #F2F3F6;
+  background-color: #363636;
+  border-color: rgb(255, 255, 255);
+  box-shadow:  15px 15px 20px #acadb1,
+            -15px -15px 20px #ffffff;
+  border-width: 0px;
+  letter-spacing: 3px;
+}
+
+/* This is meant for the word 'preview' that is placed underneath the analog clock. */
+.preview-timer{
+  position: absolute;
+  left: 390px;
+  font-size: 24px;
+}
+
+/* This css is meant to print the previewed data in the center of the screen. Due to lack of time, we couldn't find a way to make the text stay on the screen long enough that it is legible. All it outputs is a preview of the data that is going into the database and history tab. */
+.timer-print{
+  position: absolute;
+  color: #3F3F3F;
+  top: 400px;
+  left: 75px;
+  font-size: 64px;
+}
+
+/* This is the class called prductive life which alters the numerical values on the dashboard. Not a conventional name for the class, but it's manageable. */
+.productive-life {
+  text-align: center;
+  color: #223470;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 60px;
+  letter-spacing: 3px;
+  margin-top: 100px;
+}
+
+/* This is the utivity banner in the bottom right block of the dashboard menu. The css aligns it into the correct position on the menu */
+.utivity-banner {
+  position: absolute;
+  top: 70px;
+  left: 30px;
+  width: 420px;
+}
+
+/* This is called productive which is used to alter the string values and their positioning and colors to effectively create a dashboard UI. */
+.productive {
+  position: absolute;
+  top:40px;
+  left: 45px;
+  color: #1d1e22;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+  letter-spacing: 3px;
+}
