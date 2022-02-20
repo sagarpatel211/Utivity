@@ -116,9 +116,9 @@
 
 ## Contact
 #### Sagar
-[Email](mailto:patelsag@students.dsbn.org) | [Website](https://sagarpatel211.github.io/)
+[Email](mailto:sa24pate@uwaterloo.ca) | [Website](https://sagarpatel211.github.io/)
 
 #### Saurin
-[Email](mailto:patelsa@students.dsbn.org) | [Website](https://saurinpatel20.github.io/)
+[Email](mailto:sa23pate@uwaterloo.ca) | [Website](https://saurinpatel20.github.io/)
 
 
