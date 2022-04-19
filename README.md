@@ -18,7 +18,7 @@
 <code><img height="20" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
 <code><img height="20" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/CSS3_and_HTML5_logos_and_wordmarks.svg/791px-CSS3_and_HTML5_logos_and_wordmarks.svg.png"></code>
 - SQL
-<code><img height="20" src="https://freepikpsd.com/wp-content/uploads/2019/10/database-logo-png-Transparent-Images.png"></code>
+<code><img height="20" src="https://camo.githubusercontent.com/d572f1e0657be30cd6676863f5d88266eef9c1df332338d00e4fd0e7165f1946/68747470733a2f2f77372e706e6777696e672e636f6d2f706e67732f32382f3630312f706e672d7472616e73706172656e742d73716c2d6c6f676f2d696c6c757374726174696f6e2d6d6963726f736f66742d617a7572652d73716c2d64617461626173652d6d6963726f736f66742d73716c2d7365727665722d64617461626173652d626c75652d746578742d6c6f676f2d7468756d626e61696c2e706e67"></code>
 
 ## Dependencies
 - [Python 3.0 or later](https://www.python.org/downloads/) 
