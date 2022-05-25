@@ -13,8 +13,8 @@ from PyQt5 import QtCore, QtWidgets, QtGui, QtWebEngineWidgets
 # function to set up the ports, thread for the application, and the application itself
 class ApplicationThread(QtCore.QThread):
     def __init__(self, application, port=5000):
-        super(ApplicationThread, self).__init__()  #instance of the application
-        self.application = application  #instance of the application
+        super(ApplicationThread, self).__init__() 
+        self.application = application  #attribute of the application
         self.port = port #instance of the port
 
     # Dunder method to wait for the application thread to load
@@ -45,8 +45,8 @@ class WebPage(QtWebEngineWidgets.QWebEnginePage):
 # Main function where all the specifications for the desktop app with be put into
 def init_gui(application, port=0, width=800, height=600,
              window_title="PyFladesk", icon="appicon.png", argv=None):
-    if argv is None: # If there are no argument values
-        argv = sys.argv # Use the system default for creating the app structure
+    if argv is None:
+        argv = sys.argv
 
     if port == 0:
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -61,10 +61,10 @@ def init_gui(application, port=0, width=800, height=600,
     qtapp.aboutToQuit.connect(webapp.terminate)
 
     # Main Window Level
-    window = QtWidgets.QMainWindow() # Sets up the main window for our app and gets the widgets below ready
-    window.setFixedSize (width, height) # Selects the width hand height for app
-    window.setWindowTitle(window_title) # Selects the title for our app
-    window.setWindowIcon(QtGui.QIcon(icon)) # Select the topbar icon for the app
+    window = QtWidgets.QMainWindow()
+    window.setFixedSize (width, height)
+    window.setWindowTitle(window_title)
+    window.setWindowIcon(QtGui.QIcon(icon))
 
     # WebView Level
     webView = QtWebEngineWidgets.QWebEngineView(window)
