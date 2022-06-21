@@ -29,9 +29,9 @@ app = Flask(__name__) #initialize Flask app
 app.config.from_object('config') #create app confix
 app.config['SECRET_KEY'] = '04d48666f760c424461548b3570ea97e2e4e05325b5751ca6' #create a secret key to prevent injection attacks
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' #created and configs database
-db = SQLAlchemy(app) #configurates the SQLAlchemy database
-bcrypt = Bcrypt(app) # configurate the encryption function
-login_manager = LoginManager(app) #configurates the login manager
+db = SQLAlchemy(app) # creates instance of the SQLAlchemy class
+bcrypt = Bcrypt(app) # creates instance of the Bcrypt class for encryption usage
+login_manager = LoginManager(app) # creates instance of LoginManager class
 #-Tables/Models-----------------------------------------------#
 @login_manager.user_loader
 def load_user(user_id): #loads the user_id so we know which user is logged in so we can query and filter databases
