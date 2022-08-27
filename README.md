@@ -30,8 +30,10 @@
 - [Flask-WTF 0.14.3 or later](https://pypi.org/project/Flask-WTF/)
 - [Python PyFladesk 1.1](https://pypi.org/project/PyFladesk/)
 - [Python Flask-SQLAlchemy 2.5.1 or later](https://pypi.org/project/Flask-SQLAlchemy/)
+- [Python Flask-Bcrypt 1.0.1 or later](https://pypi.org/project/Flask-Bcrypt/)
 
-## Project Structure (Ignore cache and setting files)
+
+## Project Structure
   ```sh
   ├── README.md
   ├── app.py
