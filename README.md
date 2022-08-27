@@ -29,7 +29,7 @@
 - [Flask-Login 0.5.0 or later](https://pypi.org/project/Flask-Login/)
 - [Flask-WTF 0.14.3 or later](https://pypi.org/project/Flask-WTF/)
 - [Python PyFladesk 1.1](https://pypi.org/project/PyFladesk/)
-
+- [Python Flask-SQLAlchemy 2.5.1 or later](https://pypi.org/project/Flask-SQLAlchemy/)
 
 ## Project Structure (Ignore cache and setting files)
   ```sh
