@@ -32,6 +32,7 @@
 - [Python Flask-SQLAlchemy 2.5.1 or later](https://pypi.org/project/Flask-SQLAlchemy/)
 - [Python Flask-Bcrypt 1.0.1 or later](https://pypi.org/project/Flask-Bcrypt/)
 - [Python Pytz 2022.2.1 or later](https://pypi.org/project/pytz/)
+- [Python Email-validator 1.2.1 or later](https://pypi.org/project/email-validator/)
 
 ## Project Structure
   ```sh
