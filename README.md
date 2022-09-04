@@ -78,6 +78,7 @@
   ```
 
 ## Installation
+**Only supported for Windows. PyQt5 causes issues with Linux & Docker.**
 * Make sure all the dependencies are installed
 * Download the files
   * Option 1: 🍴 Fork this repository!
