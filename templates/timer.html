@@ -5,86 +5,35 @@ Last Revision Date: 2021 - 1 - 30
 ICS 4U1
 Mr. Moore -->
 
-<!DOCTYPE html>
-<html lang="en">
-    <head><!--This header section is basic HTML boilerplate code, it references the viewport, scale, and stylesheet-->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--CSS Styling -->
-        <link rel="shortcut icon" href="#">
-        <link rel="stylesheet" href="static/css/styles.css">
-    </head>
-    <body id="body-pd">
-        <header class="header" id="header">
-            <div class="header__img">
-                <img src="{{ image_file }}" class="usericonpos" alt=""> <!--This is the header file which includes the profile picture -->
-            </div>
-        </header>
-        <div class="l-navbar" id="nav-bar"><!--This div is the navigation bar -->
-            <nav class="nav">
-                <div>
-                    <a href="dashboard" class="nav__logo"><!--This is the dashboard link-->
-                        <img src="static/img/utivity.png" height="28">
-                    </a>
+{% extends 'base.html' %}
 
-                    <div class="nav__list">
-                        <a href="dashboard" class="nav__link"><!--This is the dashboard link-->
-                            <img src="static/img/home.png" width="24" height="24">
-                        </a>
-
-                        <a href="timer" class="nav__link"><!--This is the timer link-->
-                            <img src="static/img/clock.png" width="24" height="24"><!--This is the clock icon-->
-                        </a>
-                        
-                        <a href="history" class="nav__link"><!--This is the history link-->
-                            <img src="static/img/database.png" width="24" height="24"><!--This is the history icon-->
-                        </a>
-
-                        <a href="todo" class="nav__link"><!--This is the todo link-->
-                            <img src="static/img/check-square.png" width="24" height="24"><!--This is the todo icon-->
-                        </a>
-
-                        <a href="settings" class="nav__link"><!--This is the settings link-->
-                            <img src="static/img/settings.png" width="24" height="24"><!--This is the settings icon-->
-                        </a>
-
-                        <a href="help" class="nav__link"><!--This is the help link-->
-                            <img src="static/img/help-circle.png" width="24" height="24"><!--This is the helppage icon-->
-                        </a>
-                    </div>
-                </div>
-                <a href="logout" class="nav__link"><!--This is the logout link-->
-                    <img src="static/img/log-out.png" width="24" height="24"><!--This is the logout icon-->
-                </a>
-            </nav>
-        </div>
-        <h1 class="pagetitle";>Stopwatch</h1> <!--This is the page title for the timer -->
-        <div class="analog-clock-timer">
-            <div>
-                <label id="hours">00</label><!--This is label that displays the hours-->
-                :
-                <label id="minutes">00</label><!--This is label that displays the minutes-->
-                :
-                <label id="seconds">00</label><!--This is label that displays the seconds-->
-            </div>
-            <div>
-                <!--This is button that starts the stopwatch coutning-->
-                <button class="start-time-button" id="start">Start</button>
-            </div>
-            <form method="POST" action="/timer"><!--This is form that POSTs the timerdata to Flask-->
-                <input type="hidden" name="todaydate" id="todaydate"><!--This is hidden form that returns the date-->
-                <input type="hidden" name="time" id="time"><!--This is hidden form that returns the elapsedTime-->
-                <input class="submit-time-button" type="submit" id="submit" value="Submit"><!--This is submit button-->
-            </form>
-            <table class="timer-print" id="history"><!--This is history id that displays a preview of the time and date before submitting-->
-                <thead>
-                    <tr>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        <!--===== MAIN JS =====-->
-        <script src="static/js/main.js"></script>
-    </body> <!--End body-->
-</html>
+{% block body %}
+<h1 class="pagetitle";>Stopwatch</h1> <!--This is the page title for the timer -->
+<div class="analog-clock-timer">
+    <div>
+        <label id="hours">00</label><!--This is label that displays the hours-->
+        :
+        <label id="minutes">00</label><!--This is label that displays the minutes-->
+        :
+        <label id="seconds">00</label><!--This is label that displays the seconds-->
+    </div>
+    <div>
+        <!--This is button that starts the stopwatch coutning-->
+        <button class="start-time-button" id="start">Start</button>
+    </div>
+    <form method="POST" action="/timer"><!--This is form that POSTs the timerdata to Flask-->
+        <input type="hidden" name="todaydate" id="todaydate"><!--This is hidden form that returns the date-->
+        <input type="hidden" name="time" id="time"><!--This is hidden form that returns the elapsedTime-->
+        <input class="submit-time-button" type="submit" id="submit" value="Submit"><!--This is submit button-->
+    </form>
+    <table class="timer-print" id="history"><!--This is history id that displays a preview of the time and date before submitting-->
+        <thead>
+            <tr>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+<!--===== MAIN JS =====-->
+<script src="static/js/main.js"></script>
+{% endblock %}

@@ -5,79 +5,24 @@ Last Revision Date: 2021 - 1 - 30
 ICS 4U1
 Mr. Moore -->
 
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!--CSS Styling -->
-        <link rel="shortcut icon" href="#">
-        <link rel="stylesheet" href="static/css/styles.css">
-    </head>
-    <body id="body-pd">
-        <header class="header" id="header">
-            <div class="header__img">
-                <img src="{{ image_file }}" class="usericonpos" alt="">
-            </div>
-        </header>
-        <div class="l-navbar" id="nav-bar">
-            <nav class="nav">
-                <div>
-                    <a href="dashboard" class="nav__logo"><!--This is the dashboard link-->
-                        <img src="static/img/utivity.png" height="28"><!--This is the utivity icon-->
-                    </a>
+{% extends 'base.html' %}
 
-                    <div class="nav__list">
-                        <a href="dashboard" class="nav__link"><!--This is the dashboard link-->
-                            <img src="static/img/home.png" width="24" height="24"><!--This is the home icon-->
-                        </a>
-
-                        <a href="timer" class="nav__link"><!--This is the timer link-->
-                            <img src="static/img/clock.png" width="24" height="24"><!--This is the timer icon-->
-                        </a>
-                        
-                        <a href="history" class="nav__link"><!--This is the history link-->
-                            <img src="static/img/database.png" width="24" height="24"><!--This is the history icon-->
-                        </a>
-
-                        <a href="todo" class="nav__link"><!--This is the todo link-->
-                            <img src="static/img/check-square.png" width="24" height="24"><!--This is the todo icon-->
-                        </a>
-
-                        <a href="settings" class="nav__link"><!--This is the settings link-->
-                            <img src="static/img/settings.png" width="24" height="24"><!--This is the settings icon-->
-                        </a>
-
-                        <a href="help" class="nav__link"><!--This is the help link-->
-                            <img src="static/img/help-circle.png" width="24" height="24"><!--This is the help icon-->
-                        </a>
-                    </div>
-                </div>
-                <a href="logout" class="nav__link"><!--This is the logout link-->
-                    <img src="static/img/log-out.png" width="24" height="24"><!--This is the logout icon-->
-                </a>
-            </nav>
-        </div>
-        <!-- First we created a series of divs that contain values for productivity calculations that are done in Javascript -->
-        <!-- Using the information that is inserted into the paragraphs (<p></p>) we can present it to the user effectively -->
-        <!-- Most of the strings and floats  have been assigned the same class, which in this case is fine as the lengths of all strings and floats are nearly identical -->
-        <!-- These classes are then used to manipulate the sizing and other factors in css -->
-        <div class="dashboard-box-1"><!--div class box 1 = section one which displays the time the user has been productive total-->
-            <p class="productive">Lifetime Productivity</p>
-            <p class="productive-life">{{ total_productivity_lifetime }}</p>
-        </div>
-        <div class="dashboard-box-2"><!--div class box 2 = section one which displays the time the user has been productive today-->
-            <p class="productive">Today's Productivity</p>
-            <p class="productive-life">{{ total_productivity_today }}</p>
-        </div>
-        <div class="dashboard-box-3"><!--div class box 3 = section one which displays the time the user has been productive total in percent-->
-            <p class="productive">Today's Productivity (%)</p><!--title of this carousel page-->
-            <p class="productive-life">{{ total_productivity_today_perc }}</p>
-        </div>
-        <!-- This is the only div that doesn't contain paragraphs. This one contains the utivity word logo, which through using css is aligned in the box and made into a filler box -->
-        <div class="dashboard-box-4">
-            <img src="static/img/fullbanner.png" class="utivity-banner"><!--This displays the utivity banner on top of the neumorphism div to take up some space-->
-        </div>
-        <h1 class="pagetitle">Dashboard</h1><!--This displays the title of the dashboard page-->
-    </body>
-</html>
+{% block body %}
+<div class="dashboard-box-1"><!--div class box 1 = section one which displays the time the user has been productive total-->
+    <p class="productive">Lifetime Productivity</p>
+    <p class="productive-life">{{ total_productivity_lifetime }}</p>
+</div>
+<div class="dashboard-box-2"><!--div class box 2 = section one which displays the time the user has been productive today-->
+    <p class="productive">Today's Productivity</p>
+    <p class="productive-life">{{ total_productivity_today }}</p>
+</div>
+<div class="dashboard-box-3"><!--div class box 3 = section one which displays the time the user has been productive total in percent-->
+    <p class="productive">Today's Productivity (%)</p><!--title of this carousel page-->
+    <p class="productive-life">{{ total_productivity_today_perc }}</p>
+</div>
+<!-- This is the only div that doesn't contain paragraphs. This one contains the utivity word logo, which through using css is aligned in the box and made into a filler box -->
+<div class="dashboard-box-4">
+    <img src="static/img/fullbanner.png" class="utivity-banner"><!--This displays the utivity banner on top of the neumorphism div to take up some space-->
+</div>
+<h1 class="pagetitle">Dashboard</h1><!--This displays the title of the dashboard page-->
+{% endblock %}
