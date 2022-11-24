@@ -66,6 +66,7 @@
   │   │   └── default.png
   └── templates
       ├── help.html
+      ├── base.html
       ├── history.html
       ├── home.html
       ├── dashboard.html
@@ -80,7 +81,7 @@
 
 ## Installation
 **Only tested for Windows!**
-* Make sure all the dependencies are installed
+* Make sure dependencies are installed (if you have `pip` just run the provided requirements.txt as:`pip install -r requirements.txt`)
 * Download the files
   * Option 1: 🍴 Fork this repository!
   * Option 2: 🧪 Clone the repository to your local machine using https://github.com/sagarpatel211/ICS_Productivity_App.git!
