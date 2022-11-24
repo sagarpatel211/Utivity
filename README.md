@@ -33,6 +33,7 @@
 - [Python Flask-Bcrypt 1.0.1 or later](https://pypi.org/project/Flask-Bcrypt/)
 - [Python Pytz 2022.2.1 or later](https://pypi.org/project/pytz/)
 - [Python Email-validator 1.2.1 or later](https://pypi.org/project/email-validator/)
+- [Python Pillow 9.3.0 or later](https://pypi.org/project/pillow/)
 
 ## Project Structure
   ```sh
