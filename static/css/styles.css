@@ -1350,3 +1350,11 @@ For this we created a CSS to output the error under the input box to inform the 
   font-size: 28px;
   letter-spacing: 3px;
 }
+
+.splashscreen {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border: none;
+  width: 100%;
+}
