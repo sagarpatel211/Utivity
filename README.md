@@ -1,4 +1,4 @@
-# Utivity (ICS4U Final Project)
+# Utivity
  A desktop productivity app that tracks the time the user has been working and displays it in a user-friendly way.
 <img src="static/img/splashscreen.gif" width="800">
 
