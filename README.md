@@ -3,6 +3,7 @@
 <img src="static/img/splashscreen.gif" width="800">
 
 ## Table of Contents
+- [Languages](#languages)
 - [Dependencies](#dependencies)
 - [Project Structure](#project-structure)
 - [Installation](#installation)
